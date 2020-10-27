@@ -55,7 +55,7 @@ count_in_string("Emma is a good developer. Emma is a writer","Emma")
 #Question 8
 def pattern_print(pattern:int):
     for i in range(1,pattern + 1):
-        for x in range(0,i):
+        for _ in range(0,i):
             print(i,end=" ")
         print(end="\n")
 
@@ -117,7 +117,7 @@ table(10)
 #Question 14
 def pattern_pyramid(pattern:str,num:int):
     lenght = num
-    for i in range(num+1):
+    for _ in range(num+1):
         print(pattern * lenght)
         lenght -= 1
 
@@ -126,8 +126,8 @@ pattern_pyramid("*",10)
 #Question 15
 def exponent(base,exp):
     tmp = 1
-    for i in range(exp):
+    for _ in range(exp):
         tmp *= base
     return tmp
 print(exponent(5,4))
-    
+

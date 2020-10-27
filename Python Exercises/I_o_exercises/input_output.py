@@ -36,6 +36,21 @@ def float_list_input(lenght):
 
 print(float_list_input(int(input())))
 
+#Question 6
+def without_some_line(file_path:str,new_file_path,index):
+    count = 0
+    with open(file_path, "r") as myfile:
+        lines = myfile.readlines()
+        count = len(lines)
+        print(count)
+    with open(new_file_path, "w") as myfile:
+        for line in range(count):
+            if line == index-1:
+                continue
+            else:
+                myfile.write(lines[line])
+
+
 #Question 7
 string_1,string_2,string_3 = "Python programming language".split()
 # list unpacking
@@ -46,4 +61,20 @@ def show_data(total_money,price):
     print(f"I have {total_money} dollars so I can buy {total_money//price} football for {price:.2f} dollars.")
 
 show_data(1900,40)
-    
+
+#Question 9
+import os
+file_lenght = os.stat("your\\file\\path").st_size 
+print(file_lenght == 0)
+
+#Question 10
+
+def line_reader(myfile,line:int):
+    with open(myfile,"r") as file:
+        lines = file.readlines()
+    try:
+        print(lines[line-1])
+    except:
+        print("please enter the valid number")
+
+line_reader("your\\path",10)
