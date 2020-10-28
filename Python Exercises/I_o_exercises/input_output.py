@@ -64,7 +64,7 @@ show_data(1900,40)
 
 #Question 9
 import os
-file_lenght = os.stat("your\\file\\path").st_size 
+file_lenght = os.stat("your\\file\\pathgi").st_size 
 print(file_lenght == 0)
 
 #Question 10
