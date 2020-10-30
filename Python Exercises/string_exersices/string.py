@@ -82,7 +82,80 @@ def letter_count(string):
 
 print(letter_count("Apple"))
 
-#
+#Question 11
+def reverse(string):
+    return string[::-1]
 
+print(reverse("string"))
+
+#Question 12
+str1 = "Emma is a data scientist who knows Python. Emma works at google."
+def laststring_index(string,word):
+    while string.lower().count(word.lower()) > 1:
+        string = string.lower().replace(word.lower()," "*len(word),1)
+    return string.index(word.lower())
     
+        
     
+print(laststring_index(str1,"emma"))
+
+#Question 13
+str1 = "Emma-is-a-data-scientist"
+
+def eachsub(string):
+    [print(i) for i in string.split("-")]
+eachsub(str1)
+
+#Question 14
+str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
+def remove_empty(arr):
+    return [i for i in str_list if type(i) == str and len(i) > 0]
+
+print(remove_empty(str_list))
+
+#Question 15
+str1 = "/*Jon is @developer &**&*&@#)!@# musician"
+
+def remove_punctuations(string):
+    result_string = "".join([i for i in string if i.lower() != i.upper() or i == " "]).split()
+    return "".join([f"{i} " for i in result_string])
+
+print(remove_punctuations(str1))
+#regex solution 
+import re
+def remove_punct_re(string):
+    result_1 = re.sub(r"\W+"," ",string)
+    result_2 = re.sub(r"^\s","",result_1)
+    return result_2
+print(remove_punct_re(str1))
+
+#Question 16
+import re
+str_2 = "I am 25 years and 10 months old"
+def only_nums(string):
+    result = re.sub(r"[^\d]","",string)
+    return result
+
+print(only_nums(str_2))
+
+#Question 17
+str1 = "Emma25 is Data scientist50 and AI Expert"
+
+def word_with_nums(string):
+    for word in string.split():
+        tmp = False
+        for j in word:
+            if j in "0123456789":
+                tmp = True
+        if tmp:
+            print(word)
+
+word_with_nums(str1) 
+
+#Question 18
+str1 = '/*Jon is @developer & musician!!'
+import re
+def symbol_to_sharp(string):
+    return re.sub(r"[^\s\w]","#",string)
+
+print(symbol_to_sharp(str1))
