@@ -7,6 +7,7 @@ def odd_even_mix(list_odd,list_even):
 
 listOne = [3, 6, 9, 12, 15, 18, 21]
 listTwo = [4, 8, 12, 16, 20, 24, 28]
+
 odd_even_mix(listOne,listTwo)
 
 #Question 2
