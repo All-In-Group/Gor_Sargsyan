@@ -1,7 +1,7 @@
-#Wrapper function for better answer visuality 
+#Wrapper function for better answer visibility 
 def show_solution(my_func):
     def wrapper(*args,**kwargs):
-        print(f"Question {my_func.__name__[-1]} : solution")
+        print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
         print(f"\t\t{my_func(*args,**kwargs)}\n")
     return wrapper
 
