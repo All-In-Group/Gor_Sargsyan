@@ -1,29 +1,50 @@
+#Wrapper function for better answer visibility 
+def show_solution(my_func):
+    def wrapper(*args,**kwargs):
+        if my_func(*args,**kwargs) is None:
+            print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
+            print("{")
+            my_func(*args,**kwargs)
+            print("}\n")
+        else:
+            print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
+            print("{")
+            print(f"{my_func(*args,**kwargs)}")
+            print("}\n")
+    return wrapper
+
 #Question 1
-def middle_string(string):
+@show_solution
+def str_func_1(string):
     mid = len(string)//2
     return string[mid-1:mid+2]
-print(middle_string("JaSonAy"))
+
+str_func_1("JaSonAy")
 
 #Question 2
-
-def string_merge_mid(s1,s2):
+@show_solution
+def str_func_2(s1,s2):
     return f"{s1[:len(s1)//2]}{s2}{s1[len(s1)//2::]}"
 
-print(string_merge_mid("parsik","avo"))
+str_func_2("parsik","avo")
 
 #Question 3
-def string_merge(s1,s2):
+@show_solution
+def str_func_3(s1,s2):
     return f"{s1[0]}{s2[0]}{s1[len(s1)//2]}{s2[len(s2)//2]}{s1[-1]}{s2[-1]}"
 
-print(string_merge("America","Japan"))
+str_func_3("America","Japan")
 
 #Question 4
-def lowers_first(string):
+@show_solution
+def str_func_4(string):
     return f'{"".join([i for i in string if i.lower() == i])}{"".join([i for i in string if i.upper() == i])}'
-print(lowers_first("PyNaTive"))
+
+str_func_4("PyNaTive")
 
 #Question 5
-def count_char_num_symb(string):
+@show_solution
+def str_func_5(string):
     char = 0
     num = 0
     symb = 0
@@ -34,23 +55,23 @@ def count_char_num_symb(string):
             num += 1
         else:
             symb += 1
-    print(f"Chars :{char}\nDigits :{num}\nSymbols :{symb}")
+    return(f"Chars :{char}\nDigits :{num}\nSymbols :{symb}")
 
-count_char_num_symb("P@#yn26at^&i5ve")
+str_func_5("P@#yn26at^&i5ve")
 #Question 6
-
-def reversed_mix(s1,s2):
+@show_solution
+def str_func_6(s1,s2):
     short = s1 if len(s1) < len(s2) else s2[::-1]
     long = s1 if len(s1) > len(s2) else s2[::-1]
     result =  "".join([f"{s1[i]}{s2[::-1][i]}" for i in range(len(short))])
     return f"{result}{long[len(short)::]}"
 
 
-print(reversed_mix("Johny","depp"))
+str_func_6("Johny","depp")
 
 #Question 7
-
-def isBalanced(s1,s2):
+@show_solution
+def str_func_7(s1,s2):
     short = s1 if len(s1) < len(s2) else s2
     long = s1 if len(s1) > len(s2) else s2
     for i in range(len(short)):
@@ -59,89 +80,95 @@ def isBalanced(s1,s2):
     return True
 s1 = "Ynf"
 s2 = "PYnative"
-print(isBalanced(s1,s2))
+str_func_7(s1,s2)
 
 #Question 8
+@show_solution
+def str_func_8(string,word):
+    result = string.lower().count(word.lower())
+    print(f"The {word} count is: {result}")
 
-def word_counter(string,word):
-    print(f"The {word} count is: {string.lower().count(word.lower())}")
-
-word_counter("Welcome to USA. usa awesome, isn't it?","usa")
+str_func_8("Welcome to USA. USA awesome, isn't it?","USA")
 
 #Question 9
-def num_finding(string):
+@show_solution
+def str_func_9(string):
     numeric_list = "".join([i if i.isnumeric() else " " for i in string]).split()
     int_list = [int(i) for i in numeric_list]
     print(f"sum is {sum(int_list)}\naverge is {sum(int_list)/len(int_list)}")
     
-num_finding( "English = 78 Science = 83 Math = 68 History = 65")
+str_func_9( "English = 78 Science = 83 Math = 68 History = 65")
 
 #Question 10
-def letter_count(string):
+@show_solution
+def str_func_10(string):
     return  {i:string.count(i) for i in string}
 
-print(letter_count("Apple"))
+str_func_10("Apple")
 
 #Question 11
-def reverse(string):
+@show_solution
+def str_func_11(string):
     return string[::-1]
 
-print(reverse("string"))
+str_func_11("string")
 
 #Question 12
-str1 = "Emma is a data scientist who knows Python. Emma works at google."
-def laststring_index(string,word):
+@show_solution
+
+def str_func_12(string,word):
     while string.lower().count(word.lower()) > 1:
         string = string.lower().replace(word.lower()," "*len(word),1)
     return string.index(word.lower())
     
-        
-    
-print(laststring_index(str1,"emma"))
+str1 = "Emma is a data scientist who knows Python. Emma works at google."   
+str_func_12(str1,"emma")
 
 #Question 13
-str1 = "Emma-is-a-data-scientist"
-
-def eachsub(string):
+@show_solution
+def str_func_13(string):
     [print(i) for i in string.split("-")]
-eachsub(str1)
 
+str_func_13(str1)
+str1 = "Emma-is-a-data-scientist"
 #Question 14
 str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
-def remove_empty(arr):
+def str_func_14(arr):
     return [i for i in str_list if type(i) == str and len(i) > 0]
 
-print(remove_empty(str_list))
+str_func_14(str_list)
 
 #Question 15
-str1 = "/*Jon is @developer &**&*&@#)!@# musician"
 
-def remove_punctuations(string):
+@show_solution
+def str_func_15(string):
     result_string = "".join([i for i in string if i.lower() != i.upper() or i == " "]).split()
     return "".join([f"{i} " for i in result_string])
 
-print(remove_punctuations(str1))
+str1 = "/*Jon is @developer &**&*&@#)!@# musician"
+str_func_15(str1)
 #regex solution 
 import re
-def remove_punct_re(string):
+@show_solution
+def str_func_re_15(string):
     result_1 = re.sub(r"\W+"," ",string)
     result_2 = re.sub(r"^\s","",result_1)
     return result_2
-print(remove_punct_re(str1))
+str_func_re_15(str1)
 
 #Question 16
-import re
-str_2 = "I am 25 years and 10 months old"
-def only_nums(string):
+@show_solution
+
+def str_func_16(string):
     result = re.sub(r"[^\d]","",string)
     return result
 
-print(only_nums(str_2))
+str_2 = "I am 25 years and 10 months old"
+str_func_16(str_2)
 
 #Question 17
-str1 = "Emma25 is Data scientist50 and AI Expert"
-
-def word_with_nums(string):
+@show_solution
+def str_func_17(string):
     for word in string.split():
         tmp = False
         for j in word:
@@ -150,12 +177,13 @@ def word_with_nums(string):
         if tmp:
             print(word)
 
-word_with_nums(str1) 
+str1 = "Emma25 is Data scientist50 and AI Expert"
+str_func_17(str1) 
 
 #Question 18
-str1 = '/*Jon is @developer & musician!!'
-import re
-def symbol_to_sharp(string):
+@show_solution
+def str_func_18(string):
     return re.sub(r"[^\s\w]","#",string)
 
-print(symbol_to_sharp(str1))
+str1 = '/*Jon is @developer & musician!!'
+str_func_18(str1)

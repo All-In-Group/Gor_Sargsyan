@@ -69,7 +69,7 @@ tuple_func_7(tuple1)
 @show_solution
 def tuple_func_8(my_tuple):
     my_tuple = list(my_tuple)
-    for i in range(len(my_tuple)-1):
+    for _ in range(len(my_tuple)-1):
         for j in range(len(my_tuple)-1):
             if my_tuple[j][1] > my_tuple[j+1][1]:
                  my_tuple[j],my_tuple[j+1] = my_tuple[j+1],my_tuple[j]
