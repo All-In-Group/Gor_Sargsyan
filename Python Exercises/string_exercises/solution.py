@@ -86,7 +86,7 @@ str_func_7(s1,s2)
 @show_solution
 def str_func_8(string,word):
     result = string.lower().count(word.lower())
-    print(f"The {word} count is: {result}")
+    return f"The {word} count is: {result}"
 
 str_func_8("Welcome to USA. USA awesome, isn't it?","USA")
 
@@ -95,7 +95,7 @@ str_func_8("Welcome to USA. USA awesome, isn't it?","USA")
 def str_func_9(string):
     numeric_list = "".join([i if i.isnumeric() else " " for i in string]).split()
     int_list = [int(i) for i in numeric_list]
-    print(f"sum is {sum(int_list)}\naverge is {sum(int_list)/len(int_list)}")
+    return f"sum is {sum(int_list)}\naverge is {sum(int_list)/len(int_list)}"
     
 str_func_9( "English = 78 Science = 83 Math = 68 History = 65")
 
@@ -128,14 +128,15 @@ str_func_12(str1,"emma")
 @show_solution
 def str_func_13(string):
     [print(i) for i in string.split("-")]
+    return ""
 
-str_func_13(str1)
 str1 = "Emma-is-a-data-scientist"
+str_func_13(str1)
 #Question 14
-str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
+@show_solution
 def str_func_14(arr):
     return [i for i in str_list if type(i) == str and len(i) > 0]
-
+str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
 str_func_14(str_list)
 
 #Question 15
@@ -169,13 +170,15 @@ str_func_16(str_2)
 #Question 17
 @show_solution
 def str_func_17(string):
+    words = []
     for word in string.split():
         tmp = False
         for j in word:
             if j in "0123456789":
                 tmp = True
         if tmp:
-            print(word)
+            words.append(word)
+    return words
 
 str1 = "Emma25 is Data scientist50 and AI Expert"
 str_func_17(str1) 

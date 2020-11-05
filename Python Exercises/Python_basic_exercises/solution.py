@@ -1,18 +1,31 @@
-#Python Basic Exercise for Beginners
+#Wrapper function for better answer visibility 
+def show_solution(my_func):
+    def wrapper(*args,**kwargs):
+        if my_func(*args,**kwargs) is None:
+            print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
+            print("{")
+            my_func(*args,**kwargs)
+            print("}\n")
+        else:
+            print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
+            print("{")
+            print(f"{my_func(*args,**kwargs)}")
+            print("}\n")
+    return wrapper
 #Question 1 
-
-def multyply_sum(a:int,b:int):
+@show_solution
+def basic_func_1(a:int,b:int):
     result = a * b
     if result > 1000:
         return f"The result is {a + b}"
     return f"The result is {result}"
 
-print(multyply_sum(100,11))
+basic_func_1(100,11)
 
 #Question 2
 #This function works with any list with numbers in it , not only with range
-
-def sum_of_prev(int_arr:list):
+@show_solution
+def basic_func_2(int_arr:list):
     arr = int_arr
     prev = 0
     for num in range(len(arr)):
@@ -20,75 +33,83 @@ def sum_of_prev(int_arr:list):
             prev += 1
         print(f"Current number : {arr[num]} Previous number : {arr[prev]} Sum : {arr[num] + arr[prev]}")
         
-sum_of_prev([1,5,100,389,100,100])
+basic_func_2([1,5,100,389,100,100])
 
 #Question 3
-
-def show_only_even(string:str):
+@show_solution
+def basic_func_3(string:str):
     [print(string[i]) for i in range(len(string)) if i % 2 == 0]
 
-show_only_even("pynative")
+basic_func_3("pynative")
 
 #Question 4
-def string_change(string:str,index:int):
+@show_solution
+def basic_func_4(string:str,index:int):
     return string[index:]
 
-print(string_change("Gor",1))
+basic_func_4("Gor",1)
 
 #Question 5
-def start_end_same(arr:list):
+@show_solution
+def basic_func_5(arr:list):
     return arr[0] == arr[-1]
-print(start_end_same([10,10,20,10]))
+basic_func_5([10,10,20,10])
 
 #Question 6
-def division_by_5(arr:list):
+@show_solution
+def basic_func_6(arr:list):
     [print(arr[i]) for i in range(len(arr)) if arr[i] % 5 == 0]
 
-division_by_5([10,20,11,100])
+basic_func_6([10,20,11,100])
 
 #Question 7
-def count_in_string(string:str,substr:str):
+@show_solution
+def basic_func_7(string:str,substr:str):
     print(f"{substr}: appeared {string.count(substr)} times")
 
-count_in_string("Emma is a good developer. Emma is a writer","Emma")
+basic_func_7("Emma is a good developer. Emma is a writer","Emma")
 
 #Question 8
-def pattern_print(pattern:int):
+@show_solution
+def basic_func_8(pattern:int):
     for i in range(1,pattern + 1):
         for _ in range(0,i):
             print(i,end=" ")
         print(end="\n")
 
-pattern_print(5)
+basic_func_8(5)
 
 #Question 9
-def pollindrom_check_num(num:int):
+@show_solution
+def basic_func_9(num:int):
     if str(num) == str(num)[::-1]:
         print(f"original number {num}\n","The original and the reverse number is the same")
         return True
     print(f"original number {num}\n","The original and reverse number is not same")
     return False
 
-pollindrom_check_num(101)
+basic_func_9(101)
 #Question 10
-
-def odd_even_listmerge(arr1:list,arr2:list):
+@show_solution
+def basic_func_10(arr1:list,arr2:list):
     mergedarr = []
     [mergedarr.append(i) for i in arr1 if i % 2 != 0]
     [mergedarr.append(i) for i in arr2 if i % 2 == 0]
     return mergedarr
 
-print("List is ",odd_even_listmerge([3,10,2,40,1],[2,4,7]))    
+basic_func_10([3,10,2,40,1],[2,4,7])
 
 #Question 11
-def int_to_str(num:int):
+@show_solution
+def basic_func_11(num:int):
     tmp = "".join([f"{i} " for i in str(num)[::-1]])
     return tmp
 
-print("The result is " , int_to_str(1234))
+basic_func_11(1234)
 
 #Question 12
-def tax_count(money:int):
+@show_solution
+def basic_func_12(money:int):
     income = 0
     if money <= 10000:
         income = 0
@@ -99,12 +120,12 @@ def tax_count(money:int):
         income = 10000 * 10 / 100
         # last 
         income += (money-20000)  * 20 / 100
-    return income 
+    return income
 
-print("Tax is ",tax_count(49700))
+basic_func_12(49700)
 #Question 13
-
-def table(num:int):
+@show_solution
+def basic_func_13(num:int):
     for i in range(1,num+1):
         for x in range(1,num+1):
             if (i * x) < 10:
@@ -112,22 +133,24 @@ def table(num:int):
             else:
                 print(f"{i*x} " , end = " ")
         print(end = "\n")
-table(10)
+basic_func_13(10)
 
 #Question 14
-def pattern_pyramid(pattern:str,num:int):
+@show_solution
+def basic_func_14(pattern:str,num:int):
     lenght = num
     for _ in range(num+1):
         print(pattern * lenght)
         lenght -= 1
 
-pattern_pyramid("*",10)
+basic_func_14("*",10)
 
 #Question 15
-def exponent(base,exp):
+@show_solution
+def basic_func_15(base,exp):
     tmp = 1
     for _ in range(exp):
         tmp *= base
     return tmp
-print(exponent(5,4))
+basic_func_15(5,4)
 

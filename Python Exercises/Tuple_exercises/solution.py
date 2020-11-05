@@ -2,7 +2,9 @@
 def show_solution(my_func):
     def wrapper(*args,**kwargs):
         print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
-        print(f"\t\t{my_func(*args,**kwargs)}\n")
+        print("{")
+        print(f"{my_func(*args,**kwargs)}")
+        print("}\n")
     return wrapper
 
 #Question 
@@ -36,14 +38,14 @@ tuple_func_3("Asya")
         
 aTuple = (10, 20, 30, 40)
 a,b,c,d  =  aTuple
-print(f"Question 4 solution:\n\t\t{a}\n\t\t{b}\n\t\t{c}\n\t\t{d}")
+print(f"Question 4 solution:\n{a}\n{b}\n{c}\n{d}\n")
 
 #Question 5
 #Without a function
 tuple1 = (11, 22)
 tuple2 = (99, 88)
 tuple1,tuple2 = tuple2,tuple1
-print(f"Question 5 solution:\n\t\tTuple 1 {tuple1}\n\t\tTuple 2 {tuple2}")
+print(f"Question 5 solution:{{\nTuple 1 {tuple1}\nTuple 2 {tuple2}}}\n")
 
 #Question 6
 @show_solution
