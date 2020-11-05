@@ -1,16 +1,10 @@
 #Wrapper function for better answer visibility 
 def show_solution(my_func):
     def wrapper(*args,**kwargs):
-        if my_func(*args,**kwargs) is None:
-            print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
-            print("{")
-            my_func(*args,**kwargs)
-            print("}\n")
-        else:
-            print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
-            print("{")
-            print(f"{my_func(*args,**kwargs)}")
-            print("}\n")
+        print(f"Question {[i for i in my_func.__name__.split('_') if i.isdigit()][0]} : solution")
+        print("{")
+        print(f"{my_func(*args,**kwargs)}")
+        print("}\n")
     return wrapper
 
 #Question 1

@@ -19,7 +19,7 @@ def in_out_func_1(x,y):
     return x * y
 
 in_out_func_1(x = int(input()),y = int(input()))
-0
+
 #Question 2
 @show_solution
 def in_out_func_2(*args):

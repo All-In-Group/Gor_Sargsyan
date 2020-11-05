@@ -32,6 +32,7 @@ def basic_func_2(int_arr:list):
         if num > 1:
             prev += 1
         print(f"Current number : {arr[num]} Previous number : {arr[prev]} Sum : {arr[num] + arr[prev]}")
+    return ""
         
 basic_func_2([1,5,100,389,100,100])
 
