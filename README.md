@@ -1,5 +1,5 @@
 # Gor_Sargsyan
-WeatherApp
+Weather Application
  https://dry-headland-24792.herokuapp.com/
 
 Poll Application
